@@ -309,6 +309,7 @@ body:not(.light-mode) #theme-switch i:last-child {
     }
 
     .card {
+        margin: 0;
         min-width: 20vw;
         display: flex;
         align-items: center;
