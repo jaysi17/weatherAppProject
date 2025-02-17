@@ -1,0 +1,366 @@
+:root {
+    --bg-color: #0A121E;
+    --secondary-color: #212A3B;
+    --accent-color: #d3d3d3;
+    --text-color: white;
+}
+
+.light-mode {
+    --bg-color: lightgray;
+    --secondary-color: white;
+    --accent-color: #212A3B;
+    --text-color: #0A121E;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.opening {
+    min-height: 40vh;
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeANDslide 0.5s ease-out;
+}
+
+.opening p {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.weatherForm{
+    margin: 10px;
+    animation: slideDown .5s ease-out;
+    opacity: 50%;
+}
+
+.cityInput {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin-bottom: 10px;
+    width: 30vw;
+    height: 3vh;
+}
+.submitBtn{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: var(--bg-color);
+}
+
+.card {
+    padding: 20px 50px;
+    margin-bottom: 10px;
+    min-width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s;
+}
+
+.left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+    min-width: 15vw;
+    margin-right: 2.5vw;
+}
+
+.right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 15vw;
+    margin-left: 2.5vw;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+p {
+    color: var(--text-color);
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.bottom-card {
+    grid-template-columns: auto auto;
+    gap: 15px;
+    padding: 20px;
+    min-width: 50vw;
+    min-height: 20vh;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    border: 3px solid var(--accent-color);
+    animation: fadeANDslide 0.5s ease-out;
+}
+
+.cityDisplay {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+.tempDisplay {
+    font-size: 6rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.descDisplay {
+    font-style: italic; 
+    font-size: 1rem
+}
+
+.weatherEmoji {
+    margin: 0;
+    font-size: 9rem;
+}
+
+.errorDisplay {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* DARKMODE-LIGHTMODE */
+
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    animation: slideLeft 1s;
+}
+
+body.light-mode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-switch i {
+    display: none;
+}
+
+body.light-mode #theme-switch i:first-child {
+    display: none;
+}
+
+body.light-mode #theme-switch i:last-child {
+    display: block;
+}
+
+body:not(.light-mode) #theme-switch i:first-child {
+    display: block;
+}
+
+body:not(.light-mode) #theme-switch i:last-child {
+    display: none;
+}
+
+/* ANIMATIONS */
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeANDslide {
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+/* small screens (tablet, ipad, mobile phone) */
+@media screen and (max-width: 600px){
+    h1 {
+        font-size: 3rem;
+        margin-top: 0;
+        margin-bottom: 25px;
+        color: var(--text-color);
+    }
+    p {
+        color: var(--text-color);
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+
+    .opening {
+        min-height: 40vh;
+        margin-top: 20vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        animation: fadeANDslide 0.5s ease-out;
+    }
+    
+    .opening p {
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .cityDisplay {
+        font-size: 1.3rem;
+        color: var(--text-color);
+    }
+    .tempDisplay {
+        font-size: 4.5rem;
+        font-weight: bold;
+        color: var(--text-color);
+    }
+    
+    .descDisplay {
+        font-style: italic; 
+        font-size: 1.3rem
+    }
+    
+    .weatherEmoji {
+        margin: 0;
+        font-size: 6.5rem;
+    }
+    
+    .errorDisplay {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .cityInput {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid var(--accent-color);
+        border-radius: 10px;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        margin-bottom: 5px;
+        width: 50vw;
+        height: 1.5vh;
+    }
+    .submitBtn{
+        padding: 10px;
+        font-size: 1rem;
+        color: var(--accent-color);
+        background-color: var(--secondary-color);
+        border: 1px solid var(--accent-color);
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .submitBtn:hover {
+        background-color: var(--bg-color);
+    }
+
+    .card {
+        min-width: 20vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        animation: fadeIn 1s;
+    }
+    
+    .left-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-width: 15vw;
+    }
+    
+    .right-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-width: 15vw;
+        min-height: 20vh;
+    }
+
+    .bottom-card {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 20px;
+        min-width: 70vw;
+        min-height: 20vh;
+        background-color: var(--secondary-color);
+        border-radius: 20px;
+        border: 3px solid var(--accent-color);
+        animation: fadeANDslide 0.5s ease-out;
+    }
+
+    #theme-switch {
+        height: 2rem;
+        width: 2rem;
+        padding: 0;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        border: none;
+        color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        animation: slideLeft 1s;
+    }
+}
